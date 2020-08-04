@@ -1,0 +1,11 @@
+{
+  "name": "slowpoke-dex",
+  "version": "1.0.0",
+  "description": "A simple(yet incomplete) pokedex",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
