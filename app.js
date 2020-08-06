@@ -4,10 +4,9 @@ const path = require("path");
 let PORT = process.env.PORT || 8000;
 const pokeRoute = require("./routes/pokeRouter");
 
-const publicDirectory = path.join(__dirname, "./public");
-app.use(express.static(publicDirectory, { maxAge: 86400000 * 60 }));
-
+const publicDirectory = path.join(__dirname, "public");
 app.set("view engine", "ejs");
+app.use(express.static(publicDirectory));
 
 app.use("/", pokeRoute);
 
