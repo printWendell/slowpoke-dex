@@ -1,3 +1,58 @@
 body {
   font-family: "Exo 2", sans-serif;
 }
+
+header {
+  border-bottom: 3px solid black;
+  margin-bottom: 1.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+header,
+footer {
+  background-color: #ff0000;
+}
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #3b4cca;
+}
+
+.header-cams {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.main-cam_blue {
+  background: #73e9e5;
+  border: 6px solid white;
+  border-radius: 100px;
+  height: 70px;
+  width: 70px;
+  margin-left: 20px;
+}
+
+.sub-cams_red,
+.sub-cams_yellow,
+.sub-cams_green {
+  border: 1.8px solid black;
+  height: 30px;
+  width: 30px;
+  border-radius: 100px;
+  margin: 0 0.3rem;
+}
+.sub-cams_red {
+  background: #d20000;
+}
+.sub-cams_yellow {
+  background: #f9f476;
+}
+.sub-cams_green {
+  background: #117e09;
+}
