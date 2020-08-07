@@ -9,10 +9,17 @@
       <ul>
         <!-- search bar -->
         <div class="input-group flex-nowrap mb-4">
-          <input type="text" id="poke-search" class="form-control" onkeyup="searchPokemon()"
-            placeholder="Search for Pokemon..." />
+          <input
+            type="text"
+            id="poke-search"
+            class="form-control"
+            onkeyup="searchPokemon()"
+            placeholder="Search for Pokemon..."
+          />
           <div class="input-group-append">
-            <span class="mt-3"><img src="/images/search-icon.svg" alt="" /></span>
+            <span class="mt-3"
+              ><img src="/images/search-icon.svg" alt=""
+            /></span>
           </div>
         </div>
         <div class="row pokedex">
@@ -20,7 +27,7 @@
           <li
             class="pokedex-card col-6 col-md-4 col-lg-2 text-capitalize text-center p-3 mb-3"
           >
-            <a href="/pokemon<%=pokemon.id%> class="p-1"">
+            <a href="/pokemon<%=pokemon.id%> " class="p-1">
               <p class="text-muted">#<%= pokemon.id%></p>
               <h4><%=pokemon.name.english%></h4>
               <img
