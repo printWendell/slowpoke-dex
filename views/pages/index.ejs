@@ -6,7 +6,27 @@
   <body>
     <%- include('../partials/header') %>
     <div class="container">
-      <p>index</p>
+      <ul>
+        <div class="row pokedex">
+          <%pokeList.forEach(pokemon => { %>
+          <li
+            class="pokedex-card col-6 col-md-4 col-lg-2 text-capitalize text-center p-3 mb-3"
+          >
+            <a href="/pokemon<%=pokemon.id%>">
+              <p class="text-muted">#<%= pokemon.id%></p>
+              <h4><%=pokemon.name.english%></h4>
+              <img
+                src="/images/pokeImages/<%=pokemon.id%>.png"
+                alt="poke-sprite"
+                height="100px"
+                width="100px"
+                class="mb-3"
+              />
+            </a>
+          </li>
+          <% })%>
+        </div>
+      </ul>
     </div>
     <%- include('../partials/footer')%>
   </body>
