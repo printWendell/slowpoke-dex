@@ -56,3 +56,20 @@ a:hover {
 .sub-cams_green {
   background: #117e09;
 }
+
+footer {
+  border-top: 3px solid black;
+}
+
+.footer-message {
+  padding: 0.5rem;
+}
+
+.footer-message__message {
+  margin: 0 auto;
+  width: 45%;
+  border: 5px solid black;
+  border-radius: 5px;
+  background: #79ad75;
+  color: white;
+}
