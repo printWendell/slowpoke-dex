@@ -22,6 +22,11 @@
                 width="100px"
                 class="mb-3"
               />
+              <% pokemon.type.forEach(type =>{ %>
+              <p class="types-lg <%=setTypeStyle(type.toLowerCase())%> mx-auto">
+                <%=type.toUpperCase()%>
+              </p>
+              <% }) %>
             </a>
           </li>
           <% })%>
