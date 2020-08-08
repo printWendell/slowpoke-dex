@@ -11,4 +11,10 @@ router.get("/", (req, res) => {
   });
 });
 
+// get pokemon page
+router.get("/pokemon/:pokemon", (req, res) => {
+  console.log(req.params.pokemon);
+  res.send("pokemon");
+});
+
 module.exports = router;
