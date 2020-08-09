@@ -25,6 +25,7 @@ router.get("/pokemon/:pokemon", (req, res) => {
         res.render("pages/pokemon", {
           pokemon: pokemonData.data,
           species: species.data,
+          setTypeStyle,
         });
       })
     );

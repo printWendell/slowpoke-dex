@@ -5,8 +5,75 @@
   </head>
   <body>
     <%- include('../partials/header') %>
-    <main class="container">
-      <h1>pokemon</h1>
-    </main>
+    <div class="container">
+      <main class="pokemon row">
+        <div
+          class="pokemon-info text-capitalize row col-12 justify-content-center"
+        >
+          <div class="pokemon-info--sprite col-md-7 text-center">
+            <h3 class="mb-5">#<%= pokemon.id%></h3>
+            <img src="/images/pokeImages/<%=pokemon.id%>.png" alt="" />
+          </div>
+          <div class="pokemon-info--info col-md-4 table">
+            <h1><%=pokemon.name%></h1>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Species</th>
+                  <td>
+                    <!-- get species name -->
+                    <%species.genera.forEach(m => {%>
+                    <%if(m.language.name==='en'){ %>
+                    <p><%=m.genus%></p>
+                    <% } %> <% }) %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Type</th>
+                  <td>
+                    <!-- pokemon types -->
+                    <% pokemon.types.forEach(type => { %>
+                    <a href="/type/<%=type.type.name%>">
+                      <p class="types-lg <%=setTypeStyle(type.type.name)%>">
+                        <%=type.type.name%>
+                      </p>
+                    </a>
+                    <% }) %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Height</th>
+                  <td>
+                    <p>
+                      <%= Math.round(10 * (pokemon.height * .328)) / 10 %> FT
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Weight</th>
+                  <td>
+                    <p>
+                      <%= Math.round(10 * (pokemon.weight * .22)) / 10 %>
+                      lbs(<%= pokemon.weight / 10 %> kg)
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Abilities</th>
+                  <td>
+                    <% pokemon.abilities.forEach(ability => { %>
+                    <%if(ability.is_hidden === false){ %>
+                    <p><%= ability.ability.name%></p>
+                    <% } else { %>
+                    <p><%= ability.ability.name %>(hidden)</p>
+                    <% } %> <% }) %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
