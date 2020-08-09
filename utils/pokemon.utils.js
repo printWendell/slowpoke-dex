@@ -1,4 +1,5 @@
 const axios = require("axios");
+const pokelist = require("./pokelist");
 
 // get pokemon evolution chain url
 exports.getEvolutionChain = (id) => {
@@ -11,7 +12,7 @@ exports.getEvolutionChain = (id) => {
 
 exports.getIdFromName = (name) => {
   let id = null;
-  list.forEach((pokemon) => {
+  pokelist.forEach((pokemon) => {
     if (name === pokemon.name.english.toLowerCase()) {
       id = pokemon.id;
     }

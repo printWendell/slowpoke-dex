@@ -122,6 +122,11 @@
         <div class="pokemon-stats col-sm-6">
           <%- include('./stats', {stats: pokemon.stats})%>
         </div>
+
+        <div class="pokemon-evolutions d-md-flex text-capitalize col-12 row">
+          <!-- evolution chain -->
+          <%- include('./evolutions', { evolution })%>
+        </div>
       </main>
     </div>
   </body>

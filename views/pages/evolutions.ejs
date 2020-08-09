@@ -1,0 +1,218 @@
+<h3 class="font-weight-bold pokeheader col-12 mb-3">Evolution</h3>
+<!-- incoming spaghetti code -->
+<div class="pokemon-evolution--chain col-12 d-md-flex justify-content-around">
+  <%let chain = evolution.chain%> <% if(chain.evolves_to.length !== 0 &&
+  evolution.id !== 67 && pokemon.id !== 489 && pokemon.id !== 490){ %>
+  <div class="pokemon-evolutions--sprite m-2 text-center">
+    <a href="/pokemon/<%=getIdFromName(chain.species.name)%>">
+      <img
+        src="/images/pokeImages/<%=getIdFromName(chain.species.name)%>.png"
+        class="evolution-sprite"
+        alt="poke-sprite"
+        height="100"
+        width="100"
+      />
+      <h5><%=chain.species.name%></h5>
+    </a>
+  </div>
+  <div class="pokemon-evolutions--arrow d-flex align-items-center">
+    <div class="evolution-arrows">
+      <img
+        src="/images/arrow-right.svg"
+        alt="level-arrow"
+        class="evolution-right-arrow"
+      />
+      <img
+        src="/images/arrow-down.svg"
+        alt="level-arrow"
+        class="evolution-up-arrow"
+      />
+    </div>
+    <!-- check if pokemon evolves using held items -->
+    <% if(chain.evolves_to[0].evolution_details[0].trigger.name ==="use-item"){
+    %>
+    <h5>Use <%=chain.evolves_to[0].evolution_details[0].item.name%></h5>
+    <!-- if pokemon evolves because of happiness -->
+    <% } else if(chain.evolves_to[0].evolution_details[0].min_happiness !==
+    null){%>
+    <h5>High Friendship</h5>
+    <% } else if(chain.evolves_to[0].evolution_details[0].trigger.name
+    ==="trade") { %>
+    <h5>Trade</h5>
+    <% } else { %>
+    <!-- evolves from levels -->
+    <h5>Level <%= chain.evolves_to[0].evolution_details[0].min_level %></h5>
+    <% } %>
+  </div>
+
+  <div class="pokemon-evolutions--sprite text-center">
+    <a href="/pokemon/<%=getIdFromName(chain.evolves_to[0].species.name)%>">
+      <img
+        src="/images/pokeImages/<%=getIdFromName(chain.evolves_to[0].species.name)%>.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h5><%=chain.evolves_to[0].species.name%></h5>
+    </a>
+  </div>
+  <!-- check if there is theres another evolution -->
+  <% if(chain.evolves_to[0].evolves_to.length !== 0){ %>
+  <div class="pokemon-evolutions--arrow d-flex align-items-center text-center">
+    <div class="evolution-arrows">
+      <img
+        src="/images/arrow-right.svg"
+        alt="level-arrow"
+        class="evolution-right-arrow"
+      />
+      <img
+        src="/images/arrow-down.svg"
+        alt="level-arrow"
+        class="evolution-up-arrow"
+      />
+    </div>
+    <!-- checck if pokemon evolves using held items -->
+    <%if(chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name
+    ==="use-item"){ %>
+    <h5>
+      Use <%=chain.evolves_to[0].evolves_to[0].evolution_details[0].item.name%>
+    </h5>
+    <% } else
+    if(chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level !==
+    null) { %>
+    <h5>
+      Level
+      <%=chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level%>
+    </h5>
+    <% } if(chain.evolves_to[0].evolves_to[0].evolution_details[0].min_happiness
+    !== null) { %>
+    <h5>High Friendship</h5>
+    <% } else
+    if(chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name ===
+    "trade") { %>
+    <h5>
+      Trade
+    </h5>
+    <% }%>
+  </div>
+  <div class="pokemon-evolutions--sprite text-center">
+    <a
+      href="/pokemon/<%=getIdFromName(chain.evolves_to[0].evolves_to[0].species.name)%>"
+    >
+      <img
+        src="/images/pokeImages/<%=getIdFromName(chain.evolves_to[0].evolves_to[0].species.name)%>.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h5><%=chain.evolves_to[0].evolves_to[0].species.name%></h5>
+    </a>
+  </div>
+
+  <% } %>
+  <!-- eeeve evolutions -->
+  <% } else if(evolution.id === 67){ %>
+  <div class="eeveelution row">
+    <div class="eeveelution--eevee col-6 align-self-center">
+      <img
+        src="/images/pokeImages/133.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+    </div>
+
+    <div class="eeveelution--evolutions col-6">
+      <%chain.evolves_to.forEach(eeveelution => { %>
+      <img
+        src="/images/arrow-right.svg"
+        alt="level-arrow"
+        class="evolution-right-arrow"
+      />
+      <!-- vaporeon -->
+      <% if(eeveelution.species.name === 'vaporeon'){ %>
+      <img
+        src="/images/pokeImages/134.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>Use Water Stone</h6>
+      <% } %>
+      <!-- jolteon -->
+      <% if(eeveelution.species.name === 'jolteon'){ %>
+      <img
+        src="/images/pokeImages/135.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>Use Thunder Stone</h6>
+      <% } %>
+      <!-- flareon -->
+      <% if(eeveelution.species.name === 'flareon'){ %>
+      <img
+        src="/images/pokeImages/136.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>Use Fire Stone</h6>
+      <% } %>
+      <!-- espeon -->
+      <% if(eeveelution.species.name === 'espeon'){ %>
+      <img
+        src="/images/pokeImages/196.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>High Friendship(Daytime)</h6>
+      <% } %>
+      <!-- umbreon -->
+      <% if(eeveelution.species.name === 'umbreon'){ %>
+      <img
+        src="/images/pokeImages/197.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>High Friendship(Nighttime)</h6>
+      <% } %>
+      <!-- leafeon -->
+      <% if(eeveelution.species.name === 'leafeon'){ %>
+      <img
+        src="/images/pokeImages/470.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>Level Up Near Mossy Rock</h6>
+      <% } %>
+      <!-- glaceon -->
+      <% if(eeveelution.species.name === 'glaceon'){ %>
+      <img
+        src="/images/pokeImages/471.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>Level Up Near Icy Rock</h6>
+      <% } %>
+      <!-- sylveon -->
+      <% if(eeveelution.species.name === 'sylveon'){ %>
+      <img
+        src="/images/pokeImages/700.png"
+        alt="poke-sprite"
+        height="100px"
+        width="100px"
+      />
+      <h6>High Affection</h6>
+      <% } %> <% }) %>
+    </div>
+  </div>
+  <% } else { %>
+
+  <h5><%=pokemon.name%> does not evolve</h5>
+  <% }%>
+</div>
