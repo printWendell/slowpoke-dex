@@ -7,12 +7,16 @@
     <%- include('../partials/header') %>
     <div class="container">
       <main class="pokemon row">
+        <!-- basic pokemon info -->
         <div
           class="pokemon-info text-capitalize row col-12 justify-content-center"
         >
           <div class="pokemon-info--sprite col-md-7 text-center">
             <h3 class="mb-5">#<%= pokemon.id%></h3>
-            <img src="/images/pokeImages/<%=pokemon.id%>.png" alt="" />
+            <img
+              src="/images/pokeImages/<%=pokemon.id%>.png"
+              alt="pokemon-sprite"
+            />
           </div>
           <div class="pokemon-info--info col-md-4 table">
             <h1><%=pokemon.name%></h1>
@@ -42,6 +46,7 @@
                   </td>
                 </tr>
                 <tr>
+                  <!-- weight and height -->
                   <th>Height</th>
                   <td>
                     <p>
@@ -72,6 +77,45 @@
               </tbody>
             </table>
           </div>
+        </div>
+
+        <!-- training -->
+        <div class="pokemon-training text-capitalize col-sm-6">
+          <h3 class="font-weight-bold pokeheader mb-3">Training</h3>
+          <table class="pokemon-training--table table-striped">
+            <tbody>
+              <tr>
+                <th>Base Friendship</th>
+                <td><%=species.base_happiness%></td>
+              </tr>
+              <tr>
+                <th>Capture Rate</th>
+                <td><%=species.base_happiness%></td>
+              </tr>
+              <tr>
+                <th>Growth Rate</th>
+                <td><%=species.growth_rate.name%></td>
+              </tr>
+              <tr>
+                <th>Held Items</th>
+                <td>
+                  <% if(pokemon.held_items.length !== 0){ %> <%
+                  pokemon.held_items.forEach(item => { %>
+                  <p>
+                    <%=item.item.name %>
+                    <img
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/<%=item.item.name %>.png"
+                      alt="pokemon-items"
+                    />
+                  </p>
+
+                  <%})%> <%} else { %>
+                  <p>No held items</p>
+                  <% } %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </main>
     </div>
