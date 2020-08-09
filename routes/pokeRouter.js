@@ -14,8 +14,20 @@ router.get("/", (req, res) => {
 
 // get pokemon page
 router.get("/pokemon/:pokemon", (req, res) => {
-  console.log(req.params.pokemon);
-  res.send("pokemon");
+  const id = req.params.pokemon;
+  axios
+    .all([
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`),
+      axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`),
+    ])
+    .then(
+      axios.spread((pokemonData, species) => {
+        res.render("pages/pokemon", {
+          pokemon: pokemonData.data,
+          species: species.data,
+        });
+      })
+    );
 });
 
 module.exports = router;
