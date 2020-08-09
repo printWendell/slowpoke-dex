@@ -94,3 +94,16 @@ footer {
   background: #79ad75;
   color: white;
 }
+
+.evolution-up-arrow {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .evolution-right-arrow {
+    display: none;
+  }
+  .evolution-up-arrow {
+    display: block;
+  }
+}
