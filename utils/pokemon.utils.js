@@ -8,3 +8,13 @@ exports.getEvolutionChain = (id) => {
       return res.data.evolution_chain.url;
     });
 };
+
+exports.getIdFromName = (name) => {
+  let id = null;
+  list.forEach((pokemon) => {
+    if (name === pokemon.name.english.toLowerCase()) {
+      id = pokemon.id;
+    }
+  });
+  return id;
+};

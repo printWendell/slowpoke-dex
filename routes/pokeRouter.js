@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const pokeList = require("../utils/pokeList.json");
 const { setTypeStyle } = require("../utils/typeStyles");
-const { getEvolutionChain } = require("../utils/pokemon.utils");
+const { getEvolutionChain, getIdFromName } = require("../utils/pokemon.utils");
 
 router.get("/", (req, res) => {
   res.render("pages/index", {
@@ -29,6 +29,7 @@ router.get("/pokemon/:pokemon", async (req, res) => {
           species: species.data,
           evolution: evolution.data,
           setTypeStyle,
+          getIdFromName,
         });
       })
     );
