@@ -1,0 +1,54 @@
+<h3 class="font-weight-bold pokeheader mb-3">Stats</h3>
+<% let total = stats[0].base_stat + stats[1].base_stat + stats[2].base_stat +
+stats[3].base_stat + stats[4].base_stat + stats[5].base_stat%>
+
+<!-- getting maximum stat func -->
+<% const getMax = (stat) => { return (Math.floor((stat * 2 + 99) * 1.1)) } %>
+
+<!-- total max variable -->
+<%let totalMax = getMax(stats[0].base_stat) + getMax(stats[1].base_stat) +
+getMax(stats[2].base_stat) + getMax(stats[3].base_stat) +
+getMax(stats[4].base_stat) + getMax(stats[5].base_stat); %>
+
+<table class="pokemon-stats--stats__table table-striped">
+  <tr>
+    <th colspan="2">Base Stats</th>
+    <th>Max Stats</th>
+  </tr>
+
+  <tr>
+    <td>HP</td>
+    <td><%=stats[0].base_stat%></td>
+    <td><%= (stats[0].base_stat * 2 + 204)%></td>
+  </tr>
+  <tr>
+    <td>Attack</td>
+    <td><%=stats[1].base_stat%></td>
+    <td><%= getMax(stats[1].base_stat)%></td>
+  </tr>
+  <tr>
+    <td>Defense</td>
+    <td><%=stats[2].base_stat%></td>
+    <td><%= getMax(stats[2].base_stat)%></td>
+  </tr>
+  <tr>
+    <td>Sp.Atk</td>
+    <td><%=stats[3].base_stat%></td>
+    <td><%= getMax(stats[3].base_stat)%></td>
+  </tr>
+  <tr>
+    <td>Sp.Def</td>
+    <td><%=stats[4].base_stat%></td>
+    <td><%= getMax(stats[4].base_stat)%></td>
+  </tr>
+  <tr>
+    <td>Speed</td>
+    <td><%=stats[5].base_stat%></td>
+    <td><%= getMax(stats[5].base_stat)%></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%=total%></td>
+    <td><%=totalMax%></td>
+  </tr>
+</table>
