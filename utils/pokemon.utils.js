@@ -1,5 +1,5 @@
 const axios = require("axios");
-const pokelist = require("./pokelist");
+const pokelist = require("./pokeList");
 
 // get pokemon evolution chain url
 exports.getEvolutionChain = (id) => {
