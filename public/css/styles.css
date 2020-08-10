@@ -78,6 +78,11 @@ a:hover {
   list-style: none;
 }
 
+img.poke-info-image {
+  width: 65%;
+  max-width: 320px;
+}
+
 footer {
   border-top: 3px solid black;
 }
