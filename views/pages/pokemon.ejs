@@ -139,7 +139,14 @@
         <div class="pokemon-moves col-12">
           <%- include('./moves', {moveDetails}) %>
         </div>
+
+        <!-- pokemon entries -->
+        <div class="pokemon-pokeEntries col-12 mb-5">
+          <%- include('./pokeEntries', {entries: species.flavor_text_entries})
+          %>
+        </div>
       </main>
     </div>
+    <%- include('../partials/footer') %>
   </body>
 </html>

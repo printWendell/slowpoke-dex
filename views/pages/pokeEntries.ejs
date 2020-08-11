@@ -1,0 +1,11 @@
+<h3 class="font-weight-bold pokeheader mb-3">PokeDex Entries</h3>
+<table class="table table-striped">
+  <tbody>
+    <% entries.forEach(entry => { %> <% if(entry.language.name === 'en'){ %>
+    <tr>
+      <th class="text-capitalize"><%=entry.version.name%></th>
+      <td><%=entry.flavor_text%></td>
+    </tr>
+    <% } %> <% }) %>
+  </tbody>
+</table>
