@@ -3,7 +3,10 @@
 <div class="pokemon-moves--table row text-capitalize">
   <div class="left col-lg-6">
     <!-- learned moves table-->
-    <div class="pokemon-moves--table__learned table">
+    <div
+      class="pokemon-moves--table__learned mb-5 table"
+      style="overflow-x: auto;"
+    >
       <h5 class="text-center mb-3">Learned Moves</h5>
       <table class="table-hover table-bordered">
         <th>Lv</th>
@@ -39,7 +42,10 @@
     </div>
     <!-- tutor moves -->
     <% if(moveDetails[1].length){ %>
-    <div class="pokemon-moves--table__tutor mt-5 table">
+    <div
+      class="pokemon-moves--table__tutor mb-5 table"
+      style="overflow-x: auto;"
+    >
       <h5 class="text-center mb-3">Tutor Moves</h5>
       <table class="table-hover table-bordered">
         <tr>
@@ -77,7 +83,10 @@
 
     <!-- egg moves table if it exists -->
     <% if(moveDetails[2].length){ %>
-    <div class="pokemon-moves--table__machine mt-5 table">
+    <div
+      class="pokemon-moves--table__machine mb-5 table"
+      style="overflow-x: auto;"
+    >
       <h5 class="text-center mb-3">Egg Moves</h5>
       <table class="table-hover table-bordered">
         <th>Move</th>
@@ -116,7 +125,10 @@
   <% if(moveDetails[3].length) { %>
 
   <div class="right col-lg-6">
-    <div class="pokemon-moves--table__machine table">
+    <div
+      class="pokemon-moves--table__machine mb-5 table"
+      style="overflow-x: auto;"
+    >
       <h5 class="text-center mb-3">Machine Moves</h5>
       <table class="table-hover table-bordered">
         <th>Move</th>
