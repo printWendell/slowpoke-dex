@@ -1,0 +1,192 @@
+<!-- if pokemon is dual typed -->
+<!-- incoming spaghetti code -->
+<h3 class="font-weight-bold pokeheader mb-3">Type Damages</h3>
+<div class="pokemon-damages--chart text-center">
+  <% if(types[1]){ %>
+
+  <!-- quadruple damages -->
+  <div class="damage-list quadruple-damage">
+    <% if (damages(types[0].type.name,types[1].type.name).quadrupleFrom[0]){ %>
+    <h5 class="mx-auto">Takes 4* From</h5>
+    <%
+    damages(types[0].type.name,types[1].type.name).quadrupleFrom.forEach(weakness=>{
+    %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- double damages -->
+  <div class="damage-list double-damage">
+    <% if (damages(types[0].type.name,types[1].type.name).doubleFrom[0]){ %>
+    <h5>Takes 2* From</h5>
+    <%
+    damages(types[0].type.name,types[1].type.name).doubleFrom.forEach(weakness=>{
+    %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- half damages -->
+  <div class="damage-list half-damage">
+    <% if (damages(types[0].type.name,types[1].type.name).halfFrom[0]){ %>
+    <h5>Takes 1/2* From</h5>
+    <%
+    damages(types[0].type.name,types[1].type.name).halfFrom.forEach(weakness=>{
+    %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- quarter damages -->
+  <div class="damage-list quarter-damage">
+    <% if (damages(types[0].type.name,types[1].type.name).quarterFrom[0]){ %>
+    <h5>Takes 1/4* From</h5>
+    <%
+    damages(types[0].type.name,types[1].type.name).quarterFrom.forEach(weakness=>{
+    %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- no damages -->
+  <div class="damage-list none-damage">
+    <% if (damages(types[0].type.name,types[1].type.name).noneFrom[0]){ %>
+    <h5>Takes 0* From</h5>
+    <%
+    damages(types[0].type.name,types[1].type.name).noneFrom.forEach(weakness=>{
+    %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- === if pokemon is single typed === -->
+  <% } else { %>
+
+  <!-- quadruple damages -->
+  <div class="damage-list quadruple-damage">
+    <% if (damages(types[0].type.name).quadrupleFrom[0]){ %>
+    <h5 class="mx-auto">Takes 4* From</h5>
+    <% damages(types[0].type.name).quadrupleFrom.forEach(weakness=>{ %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- double damages -->
+  <div class="damage-list double-damage">
+    <% if (damages(types[0].type.name).doubleFrom[0]){ %>
+    <h5 class="mx-auto">Takes 2* From</h5>
+    <% damages(types[0].type.name).doubleFrom.forEach(weakness=>{ %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- half damages -->
+  <div class="damage-list half-damage">
+    <% if (damages(types[0].type.name).halfFrom[0]){ %>
+    <h5 class="mx-auto">Takes 1/2* From</h5>
+    <% damages(types[0].type.name).halfFrom.forEach(weakness=>{ %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- quarter damages -->
+  <div class="damage-list quarter-damage">
+    <% if (damages(types[0].type.name).quarterFrom[0]){ %>
+    <h5 class="mx-auto">Takes 1/4* From</h5>
+    <% damages(types[0].type.name).quarterFrom.forEach(weakness=>{ %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!-- no damages -->
+  <div class="damage-list none-damage">
+    <% if (damages(types[0].type.name).noneFrom[0]){ %>
+    <h5 class="mx-auto">Takes 0* From</h5>
+    <% damages(types[0].type.name).noneFrom.forEach(weakness=>{ %>
+    <div class="damages">
+      <a href="/type/<%=weakness%>">
+        <div
+          class="types-sm <%=setTypeStyle(weakness.toLowerCase())%> damages-weakness"
+        >
+          <%=weakness.substring(0,3)%>
+        </div>
+      </a>
+    </div>
+    <% }) %> <% } %>
+  </div>
+
+  <!--  -->
+  <% } %>
+</div>

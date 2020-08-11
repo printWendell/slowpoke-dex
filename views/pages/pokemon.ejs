@@ -123,9 +123,14 @@
           <%- include('./stats', {stats: pokemon.stats})%>
         </div>
 
+        <!-- evolution chain -->
         <div class="pokemon-evolutions d-md-flex text-capitalize col-12 row">
-          <!-- evolution chain -->
           <%- include('./evolutions', { evolution })%>
+        </div>
+
+        <!-- pokemon damages -->
+        <div class="pokemon-damages col-12">
+          <%- include('./pokeWeakness',{ types: pokemon.types, damages}) %>
         </div>
       </main>
     </div>

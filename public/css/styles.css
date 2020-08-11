@@ -83,6 +83,15 @@ img.poke-info-image {
   max-width: 320px;
 }
 
+.damages {
+  display: inline-flex;
+  margin: 0.5rem;
+}
+
+.damage-list {
+  display: inline;
+}
+
 footer {
   border-top: 3px solid black;
 }
