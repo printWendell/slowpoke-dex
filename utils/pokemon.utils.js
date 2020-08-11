@@ -3,6 +3,11 @@ const pokelist = require("./pokeList");
 const { getTypeWeaknesses } = require("poke-types");
 const moveList = require("../utils/pokeMoves.json");
 
+// capitalize string for checking types
+exports.toCapitalize = function (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 // get pokemon evolution chain url
 exports.getEvolutionChain = (id) => {
   return axios

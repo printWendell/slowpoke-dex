@@ -5,6 +5,7 @@ const axios = require("axios");
 const pokeList = require("../utils/pokeList.json");
 const { setTypeStyle } = require("../utils/typeStyles");
 const {
+  toCapitalize,
   getEvolutionChain,
   getIdFromName,
   getWeaknesses,
@@ -40,6 +41,18 @@ router.get("/pokemon/:pokemon", async (req, res) => {
         });
       })
     );
+});
+
+// types route
+router.get("/type/:type", (req, res) => {
+  const typeWeakness = getWeaknesses(`${req.params.type}`);
+  res.render("pages/types", {
+    type: req.params.type,
+    typeDamages: typeWeakness,
+    setTypeStyle,
+    pokeList,
+    toCapitalize,
+  });
 });
 
 module.exports = router;
