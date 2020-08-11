@@ -1,1 +1,99 @@
-<h1>type</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <%- include('../partials/head') %>
+    </head>
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+    <div class="type container">
+      <div class="type-damages text-center mb-5">
+        <div class="type-name">
+          <h1 class="text-capitalize"><%=type%> Type</h1>
+        </div>
+
+        <!-- quadruple damage -->
+        <% if(typeDamages.quadrupleFrom.length !== 0){ %>
+        <h5>Takes 4* From</h5>
+        <% typeDamages.quadrupleFrom.forEach(quadruple=>{ %>
+        <div class="damages">
+          <a href="/type/<%=quadruple%>">
+            <p class="types-lg <%=setTypeStyle(quadruple)%> mx-auto">
+              <%=quadruple%>
+            </p>
+          </a>
+        </div>
+        <% }) %> <% } %>
+        <!-- double damage -->
+        <% if(typeDamages.doubleFrom.length !== 0){ %>
+        <h5>Takes 2* From</h5>
+        <% typeDamages.doubleFrom.forEach(double=>{ %>
+        <div class="damages">
+          <a href="/type/<%=double%>">
+            <p class="types-lg <%=setTypeStyle(double)%> mx-auto">
+              <%=double%>
+            </p>
+          </a>
+        </div>
+        <% }) %> <% } %>
+        <!-- half damage -->
+        <% if(typeDamages.halfFrom.length !== 0){ %>
+        <h5>Takes 1/2* From</h5>
+        <% typeDamages.halfFrom.forEach(half=>{ %>
+        <div class="damages">
+          <a href="/type/<%=half%>">
+            <p class="types-lg <%=setTypeStyle(half)%> mx-auto"><%=half%></p>
+          </a>
+        </div>
+        <% }) %> <% } %>
+        <!-- quarter damage -->
+        <% if(typeDamages.quarterFrom.length !== 0){ %>
+        <h5>Takes 1/4* From</h5>
+        <% typeDamages.quarterFrom.forEach(quarter=>{ %>
+        <div class="damages">
+          <a href="/type/<%=quarter%>">
+            <p class="types-lg <%=setTypeStyle(quarter)%> mx-auto">
+              <%=quarter%>
+            </p>
+          </a>
+        </div>
+        <% }) %> <% } %>
+        <!-- none damage -->
+        <% if(typeDamages.noneFrom.length !== 0){ %>
+        <h5>Takes 0* From</h5>
+        <% typeDamages.noneFrom.forEach(none=>{ %>
+        <div class="damages">
+          <a href="/type/<%=none%>">
+            <p class="types-lg <%=setTypeStyle(none)%> mx-auto"><%=none%></p>
+          </a>
+        </div>
+        <% }) %> <% } %>
+      </div>
+
+      <h2 class="text-capitalize text-center mb-4"><%=type%> Pokemon</h2>
+      <div class="type-pokelist row">
+        <% pokeList.forEach(pokemon=> { %> <%
+        if(pokemon.type.includes(toCapitalize(type))){ %>
+        <a href="/pokemon/<%=pokemon.id%>">
+          <div class="type-pokelist--pokemon p-4 mb-3 text-center pokedex-card">
+            <small class="text-muted">#<%=pokemon.id%></small>
+            <h5><%=pokemon.name.english%></h5>
+            <img
+              src="/images/pokeImages/<%=pokemon.id%>.png"
+              alt=""
+              height="60px"
+              width="60px"
+            />
+            <% pokemon.type.forEach(t=>{ %>
+            <p class="text-muted"><%=t%></p>
+            <% }) %>
+          </div>
+        </a>
+        <% } %> <% }) %>
+      </div>
+    </div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
