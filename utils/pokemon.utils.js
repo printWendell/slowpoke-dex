@@ -1,6 +1,7 @@
 const axios = require("axios");
 const pokelist = require("./pokeList");
 const { getTypeWeaknesses } = require("poke-types");
+const moveList = require("../utils/pokeMoves.json");
 
 // get pokemon evolution chain url
 exports.getEvolutionChain = (id) => {
@@ -73,4 +74,41 @@ exports.getWeaknesses = function (type1, type2 = null) {
     });
   }
   return damages;
+};
+
+exports.getMoveDetails = function (pokedata) {
+  const data = pokedata;
+  let unsortedLearnedMoves = [];
+  let sortedlevelMoves = [];
+  let eggMoves = [];
+  let tutorMoves = [];
+  let machineMoves = [];
+  data.moves.forEach((move) => {
+    // replace dashes with spaces
+    let name = move.move.name.replace(/-/g, " ");
+    moveList.forEach((list) => {
+      if (name === list.ename.toLowerCase()) {
+        // method = the way the pokemon evolves
+        let method = move.version_group_details[0].move_learn_method.name;
+        if (method === "level-up") {
+          // return unsorted list
+          unsortedLearnedMoves.push([
+            move.version_group_details[0].level_learned_at,
+            list,
+          ]);
+          // sort list by level learned
+          sortedlevelMoves = unsortedLearnedMoves.sort((a, b) =>
+            a[0] > b[0] ? 1 : -1
+          );
+        } else if (method === "machine") {
+          machineMoves.push(list);
+        } else if (method === "tutor") {
+          tutorMoves.push(list);
+        } else if (method === "egg") {
+          eggMoves.push(list);
+        }
+      }
+    });
+  });
+  return [sortedlevelMoves, tutorMoves, eggMoves, machineMoves];
 };
