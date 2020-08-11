@@ -119,18 +119,25 @@
           </table>
         </div>
 
-        <div class="pokemon-stats col-sm-6">
+        <div class="pokemon-stats col-sm-6 mb-5">
           <%- include('./stats', {stats: pokemon.stats})%>
         </div>
 
         <!-- evolution chain -->
-        <div class="pokemon-evolutions d-md-flex text-capitalize col-12 row">
+        <div
+          class="pokemon-evolutions d-md-flex text-capitalize col-12 row mb-5"
+        >
           <%- include('./evolutions', { evolution })%>
         </div>
 
         <!-- pokemon damages -->
-        <div class="pokemon-damages col-12">
+        <div class="pokemon-damages col-12 mb-5">
           <%- include('./pokeWeakness',{ types: pokemon.types, damages}) %>
+        </div>
+
+        <!-- pokemon moves table -->
+        <div class="pokemon-moves col-12">
+          <%- include('./moves', {moveDetails}) %>
         </div>
       </main>
     </div>

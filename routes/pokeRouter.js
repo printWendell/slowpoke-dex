@@ -8,6 +8,7 @@ const {
   getEvolutionChain,
   getIdFromName,
   getWeaknesses,
+  getMoveDetails,
 } = require("../utils/pokemon.utils");
 
 router.get("/", (req, res) => {
@@ -32,6 +33,7 @@ router.get("/pokemon/:pokemon", async (req, res) => {
           pokemon: pokemonData.data,
           species: species.data,
           evolution: evolution.data,
+          moveDetails: getMoveDetails(pokemonData.data),
           damages: getWeaknesses,
           setTypeStyle,
           getIdFromName,

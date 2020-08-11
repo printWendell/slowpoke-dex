@@ -1,0 +1,153 @@
+<h3 class="font-weight-bold pokeheader mb-3">Moves</h3>
+
+<div class="pokemon-moves--table row text-capitalize">
+  <div class="left col-lg-6">
+    <!-- learned moves table-->
+    <div class="pokemon-moves--table__learned table">
+      <h5 class="text-center mb-3">Learned Moves</h5>
+      <table class="table-hover table-bordered">
+        <th>Lv</th>
+        <th>Move</th>
+        <th>Type</th>
+        <th>Power</th>
+        <th>Acc</th>
+        <th>PP</th>
+        <%moveDetails[0].forEach(move => { %>
+        <tr>
+          <th><%=move[0]%></th>
+          <td><%=move[1].ename%></td>
+          <td>
+            <a href="/type/<%=move[1].type.toLowerCase()%>">
+              <p class="types-sm <%=setTypeStyle(move[1].type.toLowerCase())%>">
+                <%=move[1].type.substring(0,3)%>
+              </p>
+            </a>
+          </td>
+          <% if(move[1].power !== null) { %>
+          <td><%=move[1].power%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %> <% if(move[1].accuracy !== null) { %>
+          <td><%=move[1].accuracy%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %>
+          <td><%=move[1].pp%></td>
+        </tr>
+        <%})%>
+      </table>
+    </div>
+    <!-- tutor moves -->
+    <% if(moveDetails[1].length){ %>
+    <div class="pokemon-moves--table__tutor mt-5 table">
+      <h5 class="text-center mb-3">Tutor Moves</h5>
+      <table class="table-hover table-bordered">
+        <tr>
+          <th>Move</th>
+          <th>Type</th>
+          <th>Power</th>
+          <th>Acc</th>
+          <th>PP</th>
+        </tr>
+        <% moveDetails[1].forEach(move => { %>
+        <tr>
+          <td><%=move.ename%></td>
+          <td>
+            <a href="/type/<%=move.type.toLowerCase()%>">
+              <p class="types-sm <%=setTypeStyle(move.type.toLowerCase())%>">
+                <%=move.type.substring(0,3)%>
+              </p>
+            </a>
+          </td>
+          <% if(move.power !== null) { %>
+          <td><%=move.power%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %> <% if(move.accuracy !== null) { %>
+          <td><%=move.accuracy%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %>
+          <td><%=move.pp%></td>
+        </tr>
+        <%})%>
+      </table>
+    </div>
+    <% } %>
+
+    <!-- egg moves table if it exists -->
+    <% if(moveDetails[2].length){ %>
+    <div class="pokemon-moves--table__machine mt-5 table">
+      <h5 class="text-center mb-3">Egg Moves</h5>
+      <table class="table-hover table-bordered">
+        <th>Move</th>
+        <th>Type</th>
+        <th>Power</th>
+        <th>Acc</th>
+        <th>PP</th>
+        <% moveDetails[2].forEach(move => { %>
+        <tr>
+          <td><%=move.ename%></td>
+          <td>
+            <a href="/type/<%=move.type.toLowerCase()%>">
+              <p class="types-sm <%=setTypeStyle(move.type.toLowerCase())%>">
+                <%=move.type.substring(0,3)%>
+              </p>
+            </a>
+          </td>
+          <% if(move.power !== null) { %>
+          <td><%=move.power%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %> <% if(move.accuracy !== null) { %>
+          <td><%=move.accuracy%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %>
+          <td><%=move.pp%></td>
+        </tr>
+        <%})%>
+      </table>
+    </div>
+    <% } %>
+  </div>
+
+  <!-- machine moves table -->
+  <% if(moveDetails[3].length) { %>
+
+  <div class="right col-lg-6">
+    <div class="pokemon-moves--table__machine table">
+      <h5 class="text-center mb-3">Machine Moves</h5>
+      <table class="table-hover table-bordered">
+        <th>Move</th>
+        <th>Type</th>
+        <th>Power</th>
+        <th>Acc</th>
+        <th>PP</th>
+        <% moveDetails[3].forEach(move => { %>
+        <tr>
+          <td><%=move.ename%></td>
+          <td>
+            <a href="/type/<%=move.type.toLowerCase()%>">
+              <p class="types-sm <%=setTypeStyle(move.type.toLowerCase())%>">
+                <%=move.type.substring(0,3)%>
+              </p>
+            </a>
+          </td>
+          <% if(move.power !== null) { %>
+          <td><%=move.power%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %> <% if(move.accuracy !== null) { %>
+          <td><%=move.accuracy%></td>
+          <% } else { %>
+          <td>-</td>
+          <% } %>
+          <td><%=move.pp%></td>
+        </tr>
+        <%})%>
+      </table>
+    </div>
+  </div>
+  <% } %>
+</div>
