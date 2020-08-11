@@ -4,7 +4,11 @@ const axios = require("axios");
 
 const pokeList = require("../utils/pokeList.json");
 const { setTypeStyle } = require("../utils/typeStyles");
-const { getEvolutionChain, getIdFromName } = require("../utils/pokemon.utils");
+const {
+  getEvolutionChain,
+  getIdFromName,
+  getWeaknesses,
+} = require("../utils/pokemon.utils");
 
 router.get("/", (req, res) => {
   res.render("pages/index", {
@@ -28,6 +32,7 @@ router.get("/pokemon/:pokemon", async (req, res) => {
           pokemon: pokemonData.data,
           species: species.data,
           evolution: evolution.data,
+          damages: getWeaknesses,
           setTypeStyle,
           getIdFromName,
         });
