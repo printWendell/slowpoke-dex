@@ -58,6 +58,17 @@ a:hover {
   background: #117e09;
 }
 
+.input-group.flex-nowrap.mt-3 {
+  background-color: seashell;
+  border-radius: 13px;
+  border: 4px solid black;
+  padding: 0px 12px;
+}
+input#poke-search::placeholder {
+  font-weight: bold;
+  color: black;
+}
+
 /* bouncing animation on pokedex hover */
 @keyframes bounce {
   0% {
@@ -114,6 +125,9 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
+  input#poke-search::placeholder {
+    font-size: 3vw;
+  }
   .evolution-right-arrow {
     display: none;
   }
