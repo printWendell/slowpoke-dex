@@ -133,4 +133,8 @@ footer {
   .evolution-up-arrow {
     display: block;
   }
+  .eeveelution {
+    margin: auto;
+    width: 70%;
+  }
 }
